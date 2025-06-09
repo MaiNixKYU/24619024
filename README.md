@@ -11,7 +11,7 @@ drive.mount('/content/drive')
 
 !unzip --qq /content/drive/MyDrive/open.zip -d dataset
 
-# 1. 라이브러리 임포트
+# 1. Import
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -63,7 +63,7 @@ print("Test shape:", x_test.shape)
 X_train, X_val, y_train, y_val = train_test_split(
     X, y, stratify=y, test_size=0.2, random_state=42)
 
-# 5. XGBoost native 훈련 함수 정의 (early stopping 포함)
+# 5. XGBoost native 훈련 함수 정의
 def train_and_eval(X_tr, y_tr, X_val, y_val, label):
     dtrain = DMatrix(X_tr, label=y_tr)
     dval = DMatrix(X_val, label=y_val)
@@ -104,11 +104,11 @@ model_smote, f1_smote = train_and_eval(X_train_smote, y_train_smote, X_val, y_va
 
 # 8. 더 좋은 성능의 데이터로 전체 데이터 재샘플링
 if f1_smote >= f1_raw:
-    print("✅ SMOTE가 더 나은 성능, 전체 데이터에 SMOTE 적용")
+    print("SMOTE가 더 나은 성능, 전체 데이터에 SMOTE 적용")
     smote_full = SMOTE(random_state=42)
     X_final, y_final = smote_full.fit_resample(X, y)
 else:
-    print("✅ 원본 데이터가 더 나은 성능, 원본 데이터 사용")
+    print("원본 데이터가 더 나은 성능, 원본 데이터 사용")
     X_final, y_final = X, y
 
 # 9. 최종 XGBClassifier 모델 학습
