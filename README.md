@@ -2,8 +2,17 @@
 [DACON]갑상선암 진단 분류 해커톤 : 양성과 악성, AI로 정확히 구분하라!
 
 
-# 갑상선암 진단 AI 모델 학습 및 예측 코드
-# 데이터 로드 → 전처리 → SMOTE 성능 비교 → 최종 모델 학습 → 예측 → 제출 파일 생성
+"""
+갑상선암 진단 AI 모델
+
+- Google Drive에서 데이터 마운트 및 압축 해제
+- 데이터 로드 및 결측치 처리 (범주형 최빈값, 수치형 중앙값)
+- 범주형 변수 원-핫 인코딩 및 수치형 변수 스케일링
+- train/validation 분할 후 XGBoost native 학습 (early stopping 포함)
+- SMOTE 적용 여부에 따른 성능 비교
+- 최적 데이터셋으로 전체 데이터 재샘플링 후 최종 XGBClassifier 학습
+- 테스트 데이터 예측 및 제출 파일 생성
+"""
 
 # 0. Google Drive 마운트 및 데이터 압축 해제 (Colab 환경)
 from google.colab import drive
