@@ -2,7 +2,7 @@
 [DACON]갑상선암 진단 분류 해커톤 : 양성과 악성, AI로 정확히 구분하라!
 
 
-"""
+""
 갑상선암 진단 AI 모델
 
 - Google Drive에서 데이터 마운트 및 압축 해제
@@ -12,7 +12,7 @@
 - SMOTE 적용 여부에 따른 성능 비교
 - 최적 데이터셋으로 전체 데이터 재샘플링 후 최종 XGBClassifier 학습
 - 테스트 데이터 예측 및 제출 파일 생성
-"""
+""
 
 # 0. Google Drive 마운트 및 데이터 압축 해제 (Colab 환경)
 from google.colab import drive
